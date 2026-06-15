@@ -25,17 +25,17 @@ pipeline{
    }
    }
    
-   stage('Run Application')
+   stage('Run Selenium')
    {
    steps{
-   sh 'mvn exec:java  '
+   sh 'mvn exec:java -Dexec.mainClass="com.example.App" '
    }
    }
    }
    
    post{
    success{
-   echo "open saudemo.com: https://www.saucedemo.com /"
+   echo "open saudemo.com: https://www.saucedemo.com/"
    }
    failure{
    echo "failure"
